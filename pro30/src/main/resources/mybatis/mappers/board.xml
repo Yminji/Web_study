@@ -31,14 +31,14 @@
   </select>
   
 	<!--단일이미지 추가  -->
-	 
-  <insert id="insertNewArticle"  parameterType="java.util.Map">
+	
+  <!--<insert id="insertNewArticle"  parameterType="java.util.Map">
 		<![CDATA[
 			INSERT into t_board(articleNO,  title, content, imageFileName, id)
 			VALUES(#{articleNO},#{title},	#{content}, #{imageFileName},	#{id})
 		]]>      
 	</insert>
-	
+	  --> 
   <select id="selectNewArticleNO" resultType="int"  >
 		<![CDATA[
 			SELECT  nvl(max(articleNO), 0) + 1 from t_board		
@@ -72,24 +72,22 @@
     ]]>      
   </delete>
 
- <!--다중 이미지 추가 SQL문 -->   
-  <!--
-    <insert id="insertNewArticle"  parameterType="java.util.Map">
+ <!--다중 이미지 추가 SQL문 -->  
+<insert id="insertNewArticle"  parameterType="java.util.Map">
     <![CDATA[
       insert into t_board(articleNO, id, title, content, imageFileName)
       values(#{articleNO}, #{id}, #{title}, #{content}, null)
     ]]>      
   </insert>
- 
-   <insert id="insertNewImage"  parameterType="java.util.Map">
+  
+  <insert id="insertNewImage"  parameterType="java.util.Map">
     <foreach item="item"  collection="list"   open="INSERT ALL" 
                   separator=" " close="SELECT * FROM DUAL" >
       INTO t_imageFile(imageFileNO, imageFileName, articleNO, regDate)
       VALUES (#{item.imageFileNO}, #{item.imageFileName}, #{item.articleNO}, sysdate)
     </foreach>
   </insert>
- -->
- 
+  
   <select id="selectNewImageFileNO" resultType="int"  >
     <![CDATA[
       SELECT  nvl(max(imageFileNO),0) from t_imageFile		

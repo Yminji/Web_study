@@ -15,7 +15,7 @@ public class ImageVO {
 	public Date getRegDate() {return regDate;}
 	public int getArticleNO() {return articleNO;}
 	
-	public void setImageFileNO(int imgeFileNO) {this.imageFileNO = imageFileNO;}
+	public void setImageFileNO(int imageFileNO) {this.imageFileNO = imageFileNO;}
 	public void setImageFileName(String imageFileName) {
 		try {
 			if(imageFileName!=null && imageFileName.length()!=0) {
