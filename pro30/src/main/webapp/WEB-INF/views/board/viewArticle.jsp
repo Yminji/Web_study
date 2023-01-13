@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
+<c:set var="article"  value="${articleMap.article}"  />
+<c:set var="imageFileList"  value="${articleMap.imageFileList}"  />
 <%
   request.setCharacterEncoding("UTF-8");
 %> 
@@ -117,6 +119,26 @@
     <textarea rows="20" cols="60"  name="content"  id="i_content"  disabled />${article.content }</textarea>
    </td>  
   </tr>
+
+ <c:if test="${not empty imageFileList && imageFileList!='null' }">
+	  <c:forEach var="item" items="${imageFileList}" varStatus="status" >
+		    <tr>
+			    <td width="150" align="center" bgcolor="#FF9933"  rowspan="2">
+			      이미지${status.count }
+			   </td>
+			   <td>
+			     <input  type= "hidden"   name="originalFileName" value="${item.imageFileName }" />
+			    <img src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${item.imageFileName}" id="preview"  /><br>
+			   </td>   
+			  </tr>  
+			  <tr>
+			    <td>
+			       <input  type="file"  name="imageFileName " id="i_imageFileName"   disabled   onchange="readURL(this);"   />
+			    </td>
+			 </tr>
+		</c:forEach>
+ </c:if>
+  
  	 
   <c:choose> 
 	  <c:when test="${not empty article.imageFileName && article.imageFileName!='null' }">
@@ -154,6 +176,9 @@
 			  </tr>
 		 </c:otherwise>
 	 </c:choose>
+	 
+	 
+	 
   <tr>
 	   <td width="150" align="center" bgcolor="#FF9933">
 	      등록일자
