@@ -29,7 +29,7 @@ public class BaseController {
 			String fileName = fileNames.next(); 
 			imageFileVO.setFileType(fileName); //이미지파일 정류
 			MultipartFile mFile = multipartRequest.getFile(fileName);
-			String originalFileName = mFile.getOriginalFileName();
+			String originalFileName = mFile.getOriginalFilename();
 			imageFileVO.setFileName(originalFileName); //이미지 파일명
 			fileList.add(imageFileVO); //fileList에 저장
 			
