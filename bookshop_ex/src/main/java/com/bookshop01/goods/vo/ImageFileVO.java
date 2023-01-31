@@ -1,11 +1,11 @@
 package com.bookshop01.goods.vo;
 
 public class ImageFileVO {
-	private int goods_id;
-	private int image_id;
-	private String fileName;
-	private String fileType;
-	private String reg_id;
+	private int goods_id; //상품 번호
+	private int image_id; //이미지 번호
+	private String fileName; //이미지파일명
+	private String fileType; //이미지파일종류
+	private String reg_id; //등록자 아이디
 	
 	public ImageFileVO() {
 		super();

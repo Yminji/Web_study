@@ -32,7 +32,7 @@
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/> 
 	</beans:bean>
 	
-	<context:component-scan base-package="java.com.bookshop01" />
+	<context:component-scan base-package="com.bookshop01" />
 	
 	<!-- 2단계와 3단계 요청에 대해 인터셉터 설정 -->
 	<mvc:interceptors>

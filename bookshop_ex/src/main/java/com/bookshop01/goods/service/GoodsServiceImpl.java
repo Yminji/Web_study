@@ -30,7 +30,27 @@ public class GoodsServiceImpl implements GoodsService{
 		goodsList = goodsDAO.selectGoodsList("steadyseller");
 		goodsMap.put("steadyseller", goodsList);
 		return goodsMap;
+	}
+	
+	public Map goodsDetail(String _goods_id) throws Exception{
+		Map goodsMap = new HashMap();
+		//상품 정보를 조회한 후 HashMap에 저장
+		GoodsVO goodsVO = goodsDAO.selectGoodsDetail(_goods_id);
+		goodsMap.put("goodsVO", goodsVO);
 		
-		
+		//상품 이미지 정보를 조회한 후 HashMap에 저장
+		List imageList = goodsDAO.selectGoodsDetailImage(_goods_id);
+		goodsMap.put("imageList", imageList);
+		return goodsMap;
+	}
+	
+	public List<String> keywordSearch(String keyword) throws Exception{
+		List<String> list = goodsDAO.selectKeywordSearch(keyword);
+		return list;
+	}
+	
+	public List<GoodsVO> searchGoods(String searchWord) throws Exception{
+		List goodsList = goodsDAO.selectGoodsBySearchWord(searchWord);
+		return goodsList;
 	}
 }
