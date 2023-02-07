@@ -22,7 +22,7 @@ import com.bookshop01.goods.vo.GoodsVO;
 
 import net.sf.json.JSONObject;
 
-@Controller("goodsControlelr")
+@Controller("goodsController")
 @RequestMapping(value="/goods")
 public class GoodsControllerImpl extends BaseController implements GoodsController{
 	@Autowired

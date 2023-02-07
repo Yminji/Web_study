@@ -2,6 +2,9 @@ package com.bookshop01.goods.vo;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component("goodsVO")
 public class GoodsVO {
 	private int goods_id; //상품 번호
 	private String goods_title; //상품 제목
